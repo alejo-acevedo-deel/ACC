@@ -1,0 +1,190 @@
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\bin\Debug\Timbre.exe.config
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\bin\Debug\Timbre.exe
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\bin\Debug\Timbre.pdb
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\bin\Debug\Timbre.xml
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\obj\Debug\Timbre.Form1.resources
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\obj\Debug\Timbre.Resources.resources
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\obj\Debug\Timbre.exe
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\obj\Debug\Timbre.xml
+c:\users\alejo\documents\visual studio 2013\Projects\Timbre\Timbre\obj\Debug\Timbre.pdb
+C:\Users\Alejo\Documents\Visual Studio 2013\Projects\Timbre\Timbre\obj\Debug\Timbre.Form2.resources
+G:\Timbre\Timbre\bin\Debug\Timbre.exe.config
+G:\Timbre\Timbre\obj\Debug\Timbre.exe
+G:\Timbre\Timbre\obj\Debug\Timbre.xml
+G:\Timbre\Timbre\obj\Debug\Timbre.pdb
+G:\Timbre\Timbre\bin\Debug\Timbre.exe
+G:\Timbre\Timbre\bin\Debug\Timbre.pdb
+G:\Timbre\Timbre\bin\Debug\Timbre.xml
+G:\Timbre\Timbre\obj\Debug\Timbre.Form1.resources
+G:\Timbre\Timbre\obj\Debug\Timbre.Form2.resources
+G:\Timbre\Timbre\obj\Debug\Timbre.Resources.resources
+G:\Timbre\Timbre\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+C:\Users\Fede\Desktop\Timbre\bin\Debug\Timbre.exe.config
+C:\Users\Fede\Desktop\Timbre\obj\Debug\Timbre.exe
+C:\Users\Fede\Desktop\Timbre\obj\Debug\Timbre.xml
+C:\Users\Fede\Desktop\Timbre\obj\Debug\Timbre.pdb
+E:\Timbre\Timbre\bin\Debug\Timbre.exe.config
+E:\Timbre\Timbre\obj\Debug\Timbre.exe
+E:\Timbre\Timbre\obj\Debug\Timbre.xml
+E:\Timbre\Timbre\obj\Debug\Timbre.pdb
+E:\Timbre\Timbre\bin\Debug\Timbre.exe
+E:\Timbre\Timbre\bin\Debug\Timbre.pdb
+E:\Timbre\Timbre\bin\Debug\Timbre.xml
+E:\Timbre\Timbre\obj\Debug\Timbre.Form1.resources
+E:\Timbre\Timbre\obj\Debug\Timbre.Form2.resources
+E:\Timbre\Timbre\obj\Debug\Timbre.Resources.resources
+E:\Timbre\Timbre\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+F:\Timbre\Timbre\bin\Debug\Timbre.exe.config
+F:\Timbre\Timbre\obj\Debug\Timbre.exe
+F:\Timbre\Timbre\obj\Debug\Timbre.xml
+F:\Timbre\Timbre\obj\Debug\Timbre.pdb
+F:\Timbre\Timbre\bin\Debug\Timbre.exe
+F:\Timbre\Timbre\bin\Debug\Timbre.pdb
+F:\Timbre\Timbre\bin\Debug\Timbre.xml
+F:\Timbre\Timbre\obj\Debug\Timbre.Form1.resources
+F:\Timbre\Timbre\obj\Debug\Timbre.Form2.resources
+F:\Timbre\Timbre\obj\Debug\Timbre.Resources.resources
+F:\Timbre\Timbre\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+F:\Timbre\Timbre\obj\Debug\Timbre.vbprojResolveAssemblyReference.cache
+F:\Timbre\Timbre\bin\Debug\Timbre.exe.manifest
+F:\Timbre\Timbre\bin\Debug\Timbre.application
+F:\Timbre\Timbre\obj\Debug\Timbre.exe.manifest
+F:\Timbre\Timbre\obj\Debug\Timbre.application
+F:\Timbre\Timbre\obj\Debug\Timbre.HoraYFecha.resources
+C:\Users\Fede\Desktop\Timbre\Timbre\bin\Debug\Timbre.exe.config
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.exe
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.xml
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.pdb
+C:\Users\Fede\Desktop\Timbre\Timbre\bin\Debug\Timbre.exe.manifest
+C:\Users\Fede\Desktop\Timbre\Timbre\bin\Debug\Timbre.application
+C:\Users\Fede\Desktop\Timbre\Timbre\bin\Debug\Timbre.exe
+C:\Users\Fede\Desktop\Timbre\Timbre\bin\Debug\Timbre.pdb
+C:\Users\Fede\Desktop\Timbre\Timbre\bin\Debug\Timbre.xml
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.vbprojResolveAssemblyReference.cache
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.Form1.resources
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.Form2.resources
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.HoraYFecha.resources
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.Resources.resources
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.exe.manifest
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.application
+C:\Users\Fede\Desktop\Timbre\Timbre\obj\Debug\Timbre.Form4.resources
+D:\Colegio\Timbre\Timbre\bin\Debug\Timbre.exe.config
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.exe
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.xml
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.pdb
+D:\Colegio\Timbre\Timbre\bin\Debug\Timbre.exe.manifest
+D:\Colegio\Timbre\Timbre\bin\Debug\Timbre.application
+D:\Colegio\Timbre\Timbre\bin\Debug\Timbre.exe
+D:\Colegio\Timbre\Timbre\bin\Debug\Timbre.pdb
+D:\Colegio\Timbre\Timbre\bin\Debug\Timbre.xml
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.vbprojResolveAssemblyReference.cache
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.Form1.resources
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.Form2.resources
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.HoraYFecha.resources
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.Form4.resources
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.Resources.resources
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.exe.manifest
+D:\Colegio\Timbre\Timbre\obj\Debug\Timbre.application
+F:\Timbre\Timbre\obj\Debug\Timbre.Form4.resources
+F:\Timbre\Timbre Mod Rocha\bin\Debug\Timbre.exe.config
+F:\Timbre\Timbre Mod Rocha\obj\Debug\Timbre.exe
+F:\Timbre\Timbre Mod Rocha\obj\Debug\Timbre.xml
+F:\Timbre\Timbre Mod Rocha\obj\Debug\Timbre.pdb
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\bin\Debug\Timbre.exe.config
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.exe
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.xml
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.pdb
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\bin\Debug\Timbre.exe.manifest
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\bin\Debug\Timbre.application
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\bin\Debug\Timbre.exe
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\bin\Debug\Timbre.pdb
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\bin\Debug\Timbre.xml
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.vbprojResolveAssemblyReference.cache
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.Principal.resources
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.Seteos.resources
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.HoraYFecha.resources
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.EstadoForm.resources
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.Restore.resources
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.BackUpForm.resources
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.Resources.resources
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.exe.manifest
+C:\Users\Alejo\Desktop\Timbre 2.0\Timbre backup\obj\Debug\Timbre.application
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\bin\Debug\Timbre.exe.config
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.exe
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.xml
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.pdb
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\bin\Debug\Timbre.exe.manifest
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\bin\Debug\Timbre.application
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\bin\Debug\Timbre.exe
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\bin\Debug\Timbre.pdb
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\bin\Debug\Timbre.xml
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.Principal.resources
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.Seteos.resources
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.HoraYFecha.resources
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.EstadoForm.resources
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.Resources.resources
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.Vacacione.resources
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.exe.manifest
+C:\Users\Alejo\Desktop\Timbre 2.1\Timbre Sin Dia\obj\Debug\Timbre.application
+C:\Users\Alejo\Desktop\Timbre Sin Dia\bin\Debug\Timbre.exe.config
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.exe
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.xml
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.pdb
+C:\Users\Alejo\Desktop\Timbre Sin Dia\bin\Debug\Timbre.exe.manifest
+C:\Users\Alejo\Desktop\Timbre Sin Dia\bin\Debug\Timbre.application
+C:\Users\Alejo\Desktop\Timbre Sin Dia\bin\Debug\Timbre.exe
+C:\Users\Alejo\Desktop\Timbre Sin Dia\bin\Debug\Timbre.pdb
+C:\Users\Alejo\Desktop\Timbre Sin Dia\bin\Debug\Timbre.xml
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.vbprojResolveAssemblyReference.cache
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.Principal.resources
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.Seteos.resources
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.HoraYFecha.resources
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.EstadoForm.resources
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.Resources.resources
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.Vacacione.resources
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.exe.manifest
+C:\Users\Alejo\Desktop\Timbre Sin Dia\obj\Debug\Timbre.application
+C:\Users\ALEJO\Desktop\TSS\bin\Debug\Timbre.exe.config
+C:\Users\ALEJO\Desktop\TSS\obj\Debug\Timbre.exe
+C:\Users\ALEJO\Desktop\TSS\obj\Debug\Timbre.xml
+C:\Users\ALEJO\Desktop\TSS\obj\Debug\Timbre.pdb
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.vbprojResolveAssemblyReference.cache
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.vbproj.ResolveComReference.cache
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.AcercaDe.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Duracion.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Libres.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Autenticacion.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Delete.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.AdmnTimb.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Modificar.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Añadir.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Principal.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Silenciar.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Seteos.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.HoraYFecha.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.EstadoForm.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Resources.resources
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.vbproj.GenerateResource.Cache
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\bin\Debug\Timbre.exe.config
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Interop.MSWinsockLib.dll
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\AxInterop.MSWinsockLib.dll
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\bin\Debug\Timbre.exe.manifest
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\bin\Debug\Timbre.application
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\bin\Debug\Timbre.exe
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\bin\Debug\Timbre.pdb
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\bin\Debug\Timbre.xml
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\bin\Debug\Interop.MSWinsockLib.dll
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\bin\Debug\AxInterop.MSWinsockLib.dll
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.TrustInfo.xml
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.exe.manifest
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.application
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.exe
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.xml
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.pdb
+C:\Users\ALEJO\Desktop\Timbre 2.1\APPTimbre\obj\Debug\Timbre.Form1.resources
