@@ -6,43 +6,42 @@
 
 byte Ayuda=1;
 byte Ta;
-byte ActuB;
-int THS;
+byte THS;
 char NumeroC[3];
 byte DiaB = 0;
 byte Tmin;
 byte Seg = 0;
 byte Min = 00;
 byte Hs = 00;
-bool LIBRE[8];
 int TL = 8000;
 int TC = 4000;
 boolean Th = false;
 boolean Vaca = false ;
 char Datos[40];
 char Acc[10];
+char Tipo[30];
 byte mac[] = {
-  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xFF};
-IPAddress ip(192, 168, 2, 78);
+  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xCC};
+IPAddress ip(192, 168, 1, 150);
 //IPAddress gateway(192, 168, 1, 1);
 //IPAddress subnet(255, 255, 255, 0);
-boolean lastConnected = false;
+//boolean lastConnected = false;
 EthernetServer server(35);
-boolean alreadyConnected = false;
+//boolean alreadyConnected = false;  
 tmElements_t tm;
 // NTP Servers:
-IPAddress timeServer(193,92,150,3); // time-a.timefreq.bldrdoc.gov
+//IPAddress timeServer(193,92,150,3); // time-a.timefreq.bldrdoc.gov
 // IPAddress timeServer(132, 163, 4, 102); // time-b.timefreq.bldrdoc.gov
 // IPAddress timeServer(132, 163, 4, 103); // time-c.timefreq.bldrdoc.gov 
-const int timeZone = -3;     // Central European Time
+//const int timeZone = -3;     // Central European Time
 //const int timeZone = -5;  // Eastern Standard Time (USA)
 //const int timeZone = -4;  // Eastern Daylight Time (USA)
 //const int timeZone = -8;  // Pacific Standard Time (USA)
 //const int timeZone = -7;  // Pacific Daylight Time (USA)
-EthernetUDP Udp;
-unsigned int localPort = 8888;  // local port to listen for UDP packets
-const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
-byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming & outgoing packets
+//EthernetUDP Udp;
+//unsigned int localPort = 8888;  // local port to listen for UDP packets
+//const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
+//byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming & outgoing packets
 
 void setup() {
   pinMode(2, OUTPUT);
@@ -53,7 +52,7 @@ void setup() {
   Serial.begin(9600);
  //EEPROM.write(254, 0);
   Ta = EEPROM.read(254);
-  ntpSyncDS1307();
+//  ntpSyncDS1307();
 }
 
 void loop() {
@@ -71,27 +70,19 @@ void loop() {
     Th = true;
   }
   
-  RTC.read(tm);
-  if (tm.Wday != EEPROM.read(255)){
-    ntpSyncDS1307();
-  }
-
-  if(tm.Minute!=Tmin){
-    Tmin=255;
-  }
-
-  if (!LIBRE[tm.Wday]) {
-    byte THN;
-    THS=0;
-    for ( THN = 0; THS < Ta - 4; THN++) {
-      THS=THN*4;
+  //RTC.read(tm);
+  //if (tm.Wday != EEPROM.read(255)){
+  //  ntpSyncDS1307();
+  //}
+  
+  if (tm.Wday != 5 && tm.Wday != 6) {
+    for ( THS = 0; THS <= 240; THS = THS+4) {
       byte TMIN = THS+1;
       byte TSIL = TMIN+1;
       if (EEPROM.read(THS) == tm.Hour && EEPROM.read(TMIN) == tm.Minute && EEPROM.read(THS) != 0 && EEPROM.read(TMIN) != Tmin) {
         Tmin = EEPROM.read(TMIN);
         if (EEPROM.read(TSIL) == 0) {
           Alarma();
-          //server.println("Sone");
         }
         else {
           Silencios = EEPROM.read(TSIL);
@@ -126,8 +117,7 @@ void LeerDatos() {
         Datos[Com] = ' ';
         Tb = 1;
       }
-    }        
-    Serial.println(Datos);
+    }
     Acc[0] = Datos[0];
     Acc[1] = Datos[1];
     Acc[2] = Datos[2];
@@ -142,10 +132,7 @@ void LeerDatos() {
       Hora();
     }
     if (strcmp(Acc, "Act   ") == 0) {
-      ActuB=0;
-      if (Ta!=0){
-            Act(); 
-      }
+      Act();
     }
     if (strcmp(Acc, "Borrar") == 0) {
       Borrar();
@@ -163,26 +150,7 @@ void LeerDatos() {
     if (strcmp(Acc, "Dura  ") == 0){
       Dura();
     }
-    if (strcmp(Acc, "Libre ") == 0){
-      Libre();
   }
-    if (strcmp(Acc, "Libres") == 0){
-      Libres();
-  }
-    if (strcmp(Acc, "Durar ") == 0){
-      Durar();
-  }
-      if (strcmp(Acc, "OK ") == 0){
-      Serial.println("Entro");
-      int TA;
-      TA=Ta/4;
-      TA--;
-      if (ActuB<TA){
-      ActuB++;
-      Act();
-      }
-  }
-}
 }
 
 void Set() {
@@ -268,9 +236,12 @@ void Act() {
   String str;
   char HSAct[30];
   char MINAct[5];
-  int Actu=-1;
+  byte Actu;
+  byte ActuB;
   byte ActuM;
-    Actu =  ActuB * 4;
+
+  for (ActuB = 0; Actu < Ta - 4; ActuB++) {
+    Actu = ActuB * 4;
     ActuM = Actu + 1;
     Separar(EEPROM.read(Actu));
     HSAct[0] = NumeroC[0];
@@ -296,6 +267,8 @@ void Act() {
     }
     else strcat(HSAct, " \n");
     server.println(HSAct);
+    delay(500);
+  }
 }
 
 void Borrar() {
@@ -404,9 +377,9 @@ void State() {
     strcat(HSAct, " Off \0");
   }
 
-  strcat(HSAct, " 5 \0");
+  strcat(HSAct, " C \0");
 
-  Serial.println(HSAct);
+
   server.print(HSAct);
 }
 
@@ -426,63 +399,7 @@ void Dura(){
   TL=TL*1000;
   TC=TC*1000;
 }
-
-void Libre(){
-  char HSAct[30];
-    if(LIBRE[7]== 1){
-      strcat(HSAct, "Lu\0");
-    }
-    if(LIBRE[1]== 1){
-      strcat(HSAct, " Ma\0");
-    }
-    if(LIBRE[2]== 1){
-      strcat(HSAct, " Mi\0");
-    }
-    if(LIBRE[3]== 1){
-      strcat(HSAct, " Ju\0");
-    }
-    if(LIBRE[4]== 1){
-      strcat(HSAct, " Vi\0");
-    }
-    if(LIBRE[5]== 1){
-      strcat(HSAct, " Sa\0");
-    }
-    if(LIBRE[6]== 1){
-      strcat(HSAct, " Do\0");
-    }
-      strcat(HSAct, "\n");
-      server.print(HSAct);
-}
-
-void Durar(){
-    char  HSAct[30];
-    int Seg;
-  Seg=TC/1000;
-  Separar(Seg);
-    HSAct[0] = 'C';
-  HSAct[1] = NumeroC[0];
-  HSAct[2] = NumeroC[1];
-    Seg=TL/1000;
-  Separar(Seg);
-    HSAct[3] = 'L';
-  HSAct[4] = NumeroC[0];
-  HSAct[5] = NumeroC[1];
-  HSAct[6] = '\0';
-        server.print(HSAct);
-        Serial.println(HSAct);
-}
-
-void Libres(){
-  LIBRE[7]=strstr(Datos,"Lun");
-  LIBRE[1]=strstr(Datos,"Mar");
-  LIBRE[2]=strstr(Datos,"Mie");
-  LIBRE[3]=strstr(Datos,"Jue");
-  LIBRE[4]=strstr(Datos,"Vie");
-  LIBRE[5]=strstr(Datos,"Sab");
-  LIBRE[6]=strstr(Datos,"Dom");
-  
-}
-
+/*
 void AYUDA(){
   RTC.read(tm);
   while(tm.Second<30) RTC.read(tm);
@@ -517,7 +434,7 @@ void ntpSyncDS1307() {
   AYUDA();
   }
 }
-
+*/
 void DIA(){
   RTC.read(tm);
   if(tm.Wday==0){
@@ -536,7 +453,7 @@ void DIA(){
 
   RTC.write(tm);
 }
-
+/*
 // send an NTP request to the time server at the given address
 unsigned long sendNTPpacket(IPAddress& address) {
   // set all bytes in the buffer to 0
@@ -558,11 +475,9 @@ unsigned long sendNTPpacket(IPAddress& address) {
   Udp.write(packetBuffer, NTP_PACKET_SIZE);
   Udp.endPacket();
 }
-
+*/
 void serialEvent() {
   tmElements_t tm;
-  int h=-1;
-  byte a;
   if (Serial.read() == 'T') {
     RTC.read(tm);
     Serial.print(tm.Hour);
@@ -573,20 +488,6 @@ void serialEvent() {
     Serial.println(tm.Wday);
     Serial.println(Datos);
     Serial.println(EEPROM.read(0));
-    for( a=0 ; h<Ta-4 ; a++){
-      byte b,c,d;
-      h=a*4;
-      Serial.print(EEPROM.read(h));
-      Serial.print(":");
-      b=h+1;
-      Serial.print(EEPROM.read(b));
-      Serial.print("/");
-      c=h+2;
-      Serial.print(EEPROM.read(c));
-      Serial.print("/");
-      d=h+3;
-      Serial.println(EEPROM.read(d));
-    }
   }}
 
   byte Convercion(char Dec, char Uni) {
