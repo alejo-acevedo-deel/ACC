@@ -23,7 +23,7 @@ char Datos[40];
 char Acc[10];
 byte mac[] = {
   0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xFF};
-IPAddress ip(192, 168, 1, 150);
+IPAddress ip(192, 168, 0, 50);
 //IPAddress gateway(192, 168, 1, 1);
 //IPAddress subnet(255, 255, 255, 0);
 boolean lastConnected = false;
@@ -75,6 +75,10 @@ void loop() {
   if (tm.Wday != EEPROM.read(255)){
     ntpSyncDS1307();
   }
+
+  if(Tmin != tm.Minute){
+    Tmin = 250;
+  }
   
   if (!LIBRE[tm.Wday]) {
     byte THN;
@@ -121,8 +125,7 @@ void LeerDatos() {
         Datos[Com] = ' ';
         Tb = 1;
       }
-    }        
-    Serial.println(Datos);
+    }
     Acc[0] = Datos[0];
     Acc[1] = Datos[1];
     Acc[2] = Datos[2];
@@ -168,7 +171,6 @@ void LeerDatos() {
       Durar();
   }
       if (strcmp(Acc, "OK ") == 0){
-      Serial.println("Entro");
       int TA;
       TA=Ta/4;
       TA--;
@@ -401,7 +403,6 @@ void State() {
 
   strcat(HSAct, " 5 \0");
 
-  Serial.println(HSAct);
   server.print(HSAct);
 }
 
@@ -464,7 +465,6 @@ void Durar(){
   HSAct[5] = NumeroC[1];
   HSAct[6] = '\0';
         server.print(HSAct);
-        Serial.println(HSAct);
 }
 
 void Libres(){
