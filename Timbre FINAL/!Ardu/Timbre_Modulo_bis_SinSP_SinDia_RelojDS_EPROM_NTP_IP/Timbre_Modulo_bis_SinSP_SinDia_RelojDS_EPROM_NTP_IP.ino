@@ -24,21 +24,17 @@ char Acc[10];
 byte mac[] = {
   0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xFF};
 IPAddress ip(192, 168, 0, 50);
-//IPAddress gateway(192, 168, 1, 1);
-//IPAddress subnet(255, 255, 255, 0);
+
 boolean lastConnected = false;
 EthernetServer server(35);
 boolean alreadyConnected = false;
 tmElements_t tm;
+
 // NTP Servers:
 IPAddress timeServer(193,92,150,3); // time-a.timefreq.bldrdoc.gov
 // IPAddress timeServer(132, 163, 4, 102); // time-b.timefreq.bldrdoc.gov
-// IPAddress timeServer(132, 163, 4, 103); // time-c.timefreq.bldrdoc.gov 
-const int timeZone = -3;     // Central European Time
-//const int timeZone = -5;  // Eastern Standard Time (USA)
-//const int timeZone = -4;  // Eastern Daylight Time (USA)
-//const int timeZone = -8;  // Pacific Standard Time (USA)
-//const int timeZone = -7;  // Pacific Daylight Time (USA)
+// IPAddress timeServer(132, 163, 4, 103); // time-c.timefreq.bldrdoc.gov
+const int timeZone = -3;     // Argentinian Time
 EthernetUDP Udp;
 unsigned int localPort = 8888;  // local port to listen for UDP packets
 const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
@@ -51,35 +47,28 @@ void setup() {
   server.begin();
   Wire.begin();
   Serial.begin(9600);
- //EEPROM.write(254, 0);
   Ta = EEPROM.read(254);
   ntpSyncDS1307();
 }
 
 void loop() {
-  
   byte Silencios;
   EthernetClient client = server.available();
-
   if (digitalRead(8) == 1 && Th == true) {
     Ethernet.begin(mac, ip);
     server.begin();
     Th = false;
   }
-
   if (digitalRead(8) == 0 && Th != true) {
     Th = true;
   }
-  
   RTC.read(tm);
   if (tm.Wday != EEPROM.read(255)){
     ntpSyncDS1307();
   }
-
   if(Tmin != tm.Minute){
     Tmin = 250;
   }
-  
   if (!LIBRE[tm.Wday]) {
     byte THN;
     THS=0;
@@ -100,7 +89,6 @@ void loop() {
       }
     }
   }
-
   if (client) {
     LeerDatos();
     client.flush();
@@ -142,7 +130,7 @@ void LeerDatos() {
     if (strcmp(Acc, "Act   ") == 0) {
       ActuB=0;
       if (Ta!=0){
-            Act(); 
+            Act();
       }
     }
     if (strcmp(Acc, "Borrar") == 0) {
@@ -163,23 +151,51 @@ void LeerDatos() {
     }
     if (strcmp(Acc, "Libre ") == 0){
       Libre();
-  }
+    }
     if (strcmp(Acc, "Libres") == 0){
       Libres();
-  }
+    }
     if (strcmp(Acc, "Durar ") == 0){
       Durar();
-  }
-      if (strcmp(Acc, "OK ") == 0){
+    }
+    if (strcmp(Acc, "OK ") == 0){
       int TA;
       TA=Ta/4;
       TA--;
       if (ActuB<TA){
-      ActuB++;
-      Act();
+        ActuB++;
+        Act();
       }
+    }
+    if (strcmp(Acc, "IP    ") == 0){
+      Ip();
+    }
   }
 }
+
+void Ip(){
+  char IP[5][4];
+  int x=0;
+  int i=0;
+  byte cont = 6;
+  while (Datos[cont]!=' '){
+    if(Datos[cont]=='.'||Datos[cont]==':'){
+      x++;
+      i=0;
+    }
+    else{
+      IP[x][i]=Datos[cont];
+      i++;
+    }
+    cont++;
+  }
+  ip[0] = atof(IP[0]);
+  ip[1] = atof(IP[1]);
+  ip[2] = atof(IP[2]);
+  ip[3] = atof(IP[3]);
+  EthernetServer server(atof(IP[4]));
+  Ethernet.begin(mac,ip);
+  server.begin();
 }
 
 void Set() {
@@ -337,7 +353,7 @@ void Silencio() {
       Dias[0] = Datos[12];
       Dias[1] = Datos[13];
   }
-  else {  
+  else {
     Dias[0] = Datos[13];
     Dias[1] = Datos[14];
   }
@@ -349,7 +365,7 @@ void Silencio() {
 void State() {
   tmElements_t tm;
   char  HSAct[30];
-  RTC.read(tm);  
+  RTC.read(tm);
   Separar(tm.Hour);
   HSAct[0] = NumeroC[0];
   HSAct[1] = NumeroC[1];
@@ -409,16 +425,12 @@ void State() {
 void Dura(){
   char Tl[3];
   char Tc[3];
-
   Tl[0] = Datos[7];
   Tl[1] = Datos[8];
-
   Tc[0] = Datos[10];
   Tc[1] = Datos[11];
-
   TL = Convercion(Tl[0], Tl[1]);
   TC = Convercion(Tc[0], Tc[1]);
-
   TL=TL*1000;
   TC=TC*1000;
 }
@@ -451,20 +463,20 @@ void Libre(){
 }
 
 void Durar(){
-    char  HSAct[30];
-    int Seg;
+  char  HSAct[30];
+  int Seg;
   Seg=TC/1000;
   Separar(Seg);
-    HSAct[0] = 'C';
+  HSAct[0] = 'C';
   HSAct[1] = NumeroC[0];
   HSAct[2] = NumeroC[1];
-    Seg=TL/1000;
+  Seg=TL/1000;
   Separar(Seg);
-    HSAct[3] = 'L';
+  HSAct[3] = 'L';
   HSAct[4] = NumeroC[0];
   HSAct[5] = NumeroC[1];
   HSAct[6] = '\0';
-        server.print(HSAct);
+  server.print(HSAct);
 }
 
 void Libres(){
@@ -475,14 +487,7 @@ void Libres(){
   LIBRE[4]=strstr(Datos,"Vie");
   LIBRE[5]=strstr(Datos,"Sab");
   LIBRE[6]=strstr(Datos,"Dom");
-  
-}
 
-void AYUDA(){
-  RTC.read(tm);
-  while(tm.Second<30) RTC.read(tm);
-  tm.Second=tm.Second-30;
-  RTC.write(tm);
 }
 
 void ntpSyncDS1307() {
@@ -505,11 +510,8 @@ void ntpSyncDS1307() {
       unsigned long epoch = secsSince1900 - 2208988800UL + timeZone * SECS_PER_HOUR;
       RTC.set(epoch);
       DIA();
-      Sync = 1;      
+      Sync = 1;
     }
-  }
-  if (Sync==0){
-  AYUDA();
   }
 }
 
@@ -758,5 +760,3 @@ void Separar(byte Numero) {
     }
   }
 }
-
-

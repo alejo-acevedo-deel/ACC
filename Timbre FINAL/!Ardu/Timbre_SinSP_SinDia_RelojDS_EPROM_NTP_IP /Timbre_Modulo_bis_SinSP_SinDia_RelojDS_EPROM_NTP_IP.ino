@@ -6,42 +6,39 @@
 
 byte Ayuda=1;
 byte Ta;
-byte THS;
+byte ActuB;
+int THS;
 char NumeroC[3];
 byte DiaB = 0;
 byte Tmin;
 byte Seg = 0;
 byte Min = 00;
 byte Hs = 00;
+bool LIBRE[8];
 int TL = 8000;
 int TC = 4000;
 boolean Th = false;
 boolean Vaca = false ;
 char Datos[40];
 char Acc[10];
-char Tipo[30];
 byte mac[] = {
-  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xCC};
-IPAddress ip(192, 168, 1, 150);
-//IPAddress gateway(192, 168, 1, 1);
-//IPAddress subnet(255, 255, 255, 0);
-//boolean lastConnected = false;
+  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xFF};
+IPAddress ip(192, 168, 0, 50);
+
+boolean lastConnected = false;
 EthernetServer server(35);
-//boolean alreadyConnected = false;  
+boolean alreadyConnected = false;
 tmElements_t tm;
+
 // NTP Servers:
-//IPAddress timeServer(193,92,150,3); // time-a.timefreq.bldrdoc.gov
+IPAddress timeServer(193,92,150,3); // time-a.timefreq.bldrdoc.gov
 // IPAddress timeServer(132, 163, 4, 102); // time-b.timefreq.bldrdoc.gov
-// IPAddress timeServer(132, 163, 4, 103); // time-c.timefreq.bldrdoc.gov 
-//const int timeZone = -3;     // Central European Time
-//const int timeZone = -5;  // Eastern Standard Time (USA)
-//const int timeZone = -4;  // Eastern Daylight Time (USA)
-//const int timeZone = -8;  // Pacific Standard Time (USA)
-//const int timeZone = -7;  // Pacific Daylight Time (USA)
-//EthernetUDP Udp;
-//unsigned int localPort = 8888;  // local port to listen for UDP packets
-//const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
-//byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming & outgoing packets
+// IPAddress timeServer(132, 163, 4, 103); // time-c.timefreq.bldrdoc.gov
+const int timeZone = -3;     // Argentinian Time
+EthernetUDP Udp;
+unsigned int localPort = 8888;  // local port to listen for UDP packets
+const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
+byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming & outgoing packets
 
 void setup() {
   pinMode(2, OUTPUT);
@@ -50,33 +47,33 @@ void setup() {
   server.begin();
   Wire.begin();
   Serial.begin(9600);
- //EEPROM.write(254, 0);
   Ta = EEPROM.read(254);
-//  ntpSyncDS1307();
+  ntpSyncDS1307();
 }
 
 void loop() {
-  
   byte Silencios;
   EthernetClient client = server.available();
-
   if (digitalRead(8) == 1 && Th == true) {
     Ethernet.begin(mac, ip);
     server.begin();
     Th = false;
   }
-
   if (digitalRead(8) == 0 && Th != true) {
     Th = true;
   }
-  
-  //RTC.read(tm);
-  //if (tm.Wday != EEPROM.read(255)){
-  //  ntpSyncDS1307();
-  //}
-  
-  if (tm.Wday != 5 && tm.Wday != 6) {
-    for ( THS = 0; THS <= 240; THS = THS+4) {
+  RTC.read(tm);
+  if (tm.Wday != EEPROM.read(255)){
+    ntpSyncDS1307();
+  }
+  if(Tmin != tm.Minute){
+    Tmin = 250;
+  }
+  if (!LIBRE[tm.Wday]) {
+    byte THN;
+    THS=0;
+    for ( THN = 0; THS < Ta - 4; THN++) {
+      THS=THN*4;
       byte TMIN = THS+1;
       byte TSIL = TMIN+1;
       if (EEPROM.read(THS) == tm.Hour && EEPROM.read(TMIN) == tm.Minute && EEPROM.read(THS) != 0 && EEPROM.read(TMIN) != Tmin) {
@@ -92,7 +89,6 @@ void loop() {
       }
     }
   }
-
   if (client) {
     LeerDatos();
     client.flush();
@@ -132,7 +128,10 @@ void LeerDatos() {
       Hora();
     }
     if (strcmp(Acc, "Act   ") == 0) {
-      Act();
+      ActuB=0;
+      if (Ta!=0){
+            Act();
+      }
     }
     if (strcmp(Acc, "Borrar") == 0) {
       Borrar();
@@ -150,7 +149,53 @@ void LeerDatos() {
     if (strcmp(Acc, "Dura  ") == 0){
       Dura();
     }
+    if (strcmp(Acc, "Libre ") == 0){
+      Libre();
+    }
+    if (strcmp(Acc, "Libres") == 0){
+      Libres();
+    }
+    if (strcmp(Acc, "Durar ") == 0){
+      Durar();
+    }
+    if (strcmp(Acc, "OK ") == 0){
+      int TA;
+      TA=Ta/4;
+      TA--;
+      if (ActuB<TA){
+        ActuB++;
+        Act();
+      }
+    }
+    if (strcmp(Acc, "IP    ") == 0){
+      Ip();
+    }
   }
+}
+
+void Ip(){
+  char IP[5][4];
+  int x=0;
+  int i=0;
+  byte cont = 6;
+  while (Datos[cont]!=' '){
+    if(Datos[cont]=='.'||Datos[cont]==':'){
+      x++;
+      i=0;
+    }
+    else{
+      IP[x][i]=Datos[cont];
+      i++;
+    }
+    cont++;
+  }
+  ip[0] = atof(IP[0]);
+  ip[1] = atof(IP[1]);
+  ip[2] = atof(IP[2]);
+  ip[3] = atof(IP[3]);
+  EthernetServer server(atof(IP[4]));
+  Ethernet.begin(mac,ip);
+  server.begin();
 }
 
 void Set() {
@@ -236,12 +281,9 @@ void Act() {
   String str;
   char HSAct[30];
   char MINAct[5];
-  byte Actu;
-  byte ActuB;
+  int Actu=-1;
   byte ActuM;
-
-  for (ActuB = 0; Actu < Ta - 4; ActuB++) {
-    Actu = ActuB * 4;
+    Actu =  ActuB * 4;
     ActuM = Actu + 1;
     Separar(EEPROM.read(Actu));
     HSAct[0] = NumeroC[0];
@@ -267,8 +309,6 @@ void Act() {
     }
     else strcat(HSAct, " \n");
     server.println(HSAct);
-    delay(500);
-  }
 }
 
 void Borrar() {
@@ -313,7 +353,7 @@ void Silencio() {
       Dias[0] = Datos[12];
       Dias[1] = Datos[13];
   }
-  else {  
+  else {
     Dias[0] = Datos[13];
     Dias[1] = Datos[14];
   }
@@ -325,7 +365,7 @@ void Silencio() {
 void State() {
   tmElements_t tm;
   char  HSAct[30];
-  RTC.read(tm);  
+  RTC.read(tm);
   Separar(tm.Hour);
   HSAct[0] = NumeroC[0];
   HSAct[1] = NumeroC[1];
@@ -377,8 +417,7 @@ void State() {
     strcat(HSAct, " Off \0");
   }
 
-  strcat(HSAct, " C \0");
-
+  strcat(HSAct, " 5 \0");
 
   server.print(HSAct);
 }
@@ -386,25 +425,69 @@ void State() {
 void Dura(){
   char Tl[3];
   char Tc[3];
-
   Tl[0] = Datos[7];
   Tl[1] = Datos[8];
-
   Tc[0] = Datos[10];
   Tc[1] = Datos[11];
-
   TL = Convercion(Tl[0], Tl[1]);
   TC = Convercion(Tc[0], Tc[1]);
-
   TL=TL*1000;
   TC=TC*1000;
 }
-/*
-void AYUDA(){
-  RTC.read(tm);
-  while(tm.Second<30) RTC.read(tm);
-  tm.Second=tm.Second-30;
-  RTC.write(tm);
+
+void Libre(){
+  char HSAct[30];
+    if(LIBRE[7]== 1){
+      strcat(HSAct, "Lu\0");
+    }
+    if(LIBRE[1]== 1){
+      strcat(HSAct, " Ma\0");
+    }
+    if(LIBRE[2]== 1){
+      strcat(HSAct, " Mi\0");
+    }
+    if(LIBRE[3]== 1){
+      strcat(HSAct, " Ju\0");
+    }
+    if(LIBRE[4]== 1){
+      strcat(HSAct, " Vi\0");
+    }
+    if(LIBRE[5]== 1){
+      strcat(HSAct, " Sa\0");
+    }
+    if(LIBRE[6]== 1){
+      strcat(HSAct, " Do\0");
+    }
+      strcat(HSAct, "\n");
+      server.print(HSAct);
+}
+
+void Durar(){
+  char  HSAct[30];
+  int Seg;
+  Seg=TC/1000;
+  Separar(Seg);
+  HSAct[0] = 'C';
+  HSAct[1] = NumeroC[0];
+  HSAct[2] = NumeroC[1];
+  Seg=TL/1000;
+  Separar(Seg);
+  HSAct[3] = 'L';
+  HSAct[4] = NumeroC[0];
+  HSAct[5] = NumeroC[1];
+  HSAct[6] = '\0';
+  server.print(HSAct);
+}
+
+void Libres(){
+  LIBRE[7]=strstr(Datos,"Lun");
+  LIBRE[1]=strstr(Datos,"Mar");
+  LIBRE[2]=strstr(Datos,"Mie");
+  LIBRE[3]=strstr(Datos,"Jue");
+  LIBRE[4]=strstr(Datos,"Vie");
+  LIBRE[5]=strstr(Datos,"Sab");
+  LIBRE[6]=strstr(Datos,"Dom");
+
 }
 
 void ntpSyncDS1307() {
@@ -427,14 +510,11 @@ void ntpSyncDS1307() {
       unsigned long epoch = secsSince1900 - 2208988800UL + timeZone * SECS_PER_HOUR;
       RTC.set(epoch);
       DIA();
-      Sync = 1;      
+      Sync = 1;
     }
   }
-  if (Sync==0){
-  AYUDA();
-  }
 }
-*/
+
 void DIA(){
   RTC.read(tm);
   if(tm.Wday==0){
@@ -453,7 +533,7 @@ void DIA(){
 
   RTC.write(tm);
 }
-/*
+
 // send an NTP request to the time server at the given address
 unsigned long sendNTPpacket(IPAddress& address) {
   // set all bytes in the buffer to 0
@@ -475,9 +555,11 @@ unsigned long sendNTPpacket(IPAddress& address) {
   Udp.write(packetBuffer, NTP_PACKET_SIZE);
   Udp.endPacket();
 }
-*/
+
 void serialEvent() {
   tmElements_t tm;
+  int h=-1;
+  byte a;
   if (Serial.read() == 'T') {
     RTC.read(tm);
     Serial.print(tm.Hour);
@@ -488,6 +570,20 @@ void serialEvent() {
     Serial.println(tm.Wday);
     Serial.println(Datos);
     Serial.println(EEPROM.read(0));
+    for( a=0 ; h<Ta-4 ; a++){
+      byte b,c,d;
+      h=a*4;
+      Serial.print(EEPROM.read(h));
+      Serial.print(":");
+      b=h+1;
+      Serial.print(EEPROM.read(b));
+      Serial.print("/");
+      c=h+2;
+      Serial.print(EEPROM.read(c));
+      Serial.print("/");
+      d=h+3;
+      Serial.println(EEPROM.read(d));
+    }
   }}
 
   byte Convercion(char Dec, char Uni) {
@@ -664,5 +760,3 @@ void Separar(byte Numero) {
     }
   }
 }
-
-
